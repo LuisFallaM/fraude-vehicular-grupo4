@@ -1,0 +1,183 @@
+{
+  "nombre_modelo": "XGBoost (GridSearchCV)",
+  "umbral_alta_cobertura": 0.26,
+  "umbral_max_f1": 0.39,
+  "tasa_base_test": 0.06,
+  "columnas_entrada": [
+    "month",
+    "weekofmonth",
+    "dayofweek",
+    "make",
+    "accidentarea",
+    "dayofweekclaimed",
+    "monthclaimed",
+    "weekofmonthclaimed",
+    "sex",
+    "maritalstatus",
+    "age",
+    "fault",
+    "vehiclecategory",
+    "vehicleprice",
+    "deductible",
+    "driverrating",
+    "days_policy_accident",
+    "days_policy_claim",
+    "pastnumberofclaims",
+    "ageofvehicle",
+    "policereportfiled",
+    "witnesspresent",
+    "agenttype",
+    "numberofsuppliments",
+    "addresschange_claim",
+    "numberofcars",
+    "basepolicy"
+  ],
+  "perfil_default": {
+    "month": "May",
+    "weekofmonth": 3.0,
+    "dayofweek": "Monday",
+    "make": "Pontiac",
+    "accidentarea": "Urban",
+    "dayofweekclaimed": "Monday",
+    "monthclaimed": "Jan",
+    "weekofmonthclaimed": 3.0,
+    "sex": "Male",
+    "maritalstatus": "Married",
+    "age": 38.0,
+    "fault": "Policy Holder",
+    "vehiclecategory": "Sedan",
+    "vehicleprice": "20000 to 29000",
+    "deductible": "400",
+    "driverrating": 2.0,
+    "days_policy_accident": "more than 30",
+    "days_policy_claim": "more than 30",
+    "pastnumberofclaims": "2 to 4",
+    "ageofvehicle": "7 years",
+    "policereportfiled": "No",
+    "witnesspresent": "No",
+    "agenttype": "External",
+    "numberofsuppliments": "none",
+    "addresschange_claim": "no change",
+    "numberofcars": "1 vehicle",
+    "basepolicy": "Collision"
+  },
+  "ord_categories": [
+    [
+      "less than 20000",
+      "20000 to 29000",
+      "30000 to 39000",
+      "40000 to 59000",
+      "60000 to 69000",
+      "more than 69000"
+    ],
+    [
+      "none",
+      "1 to 7",
+      "8 to 15",
+      "15 to 30",
+      "more than 30"
+    ],
+    [
+      "none",
+      "8 to 15",
+      "15 to 30",
+      "more than 30"
+    ],
+    [
+      "none",
+      "1",
+      "2 to 4",
+      "more than 4"
+    ],
+    [
+      "new",
+      "2 years",
+      "3 years",
+      "4 years",
+      "5 years",
+      "6 years",
+      "7 years",
+      "more than 7"
+    ],
+    [
+      "none",
+      "1 to 2",
+      "3 to 5",
+      "more than 5"
+    ],
+    [
+      "no change",
+      "under 6 months",
+      "1 year",
+      "2 to 3 years",
+      "4 to 8 years"
+    ],
+    [
+      "1 vehicle",
+      "2 vehicles",
+      "3 to 4",
+      "5 to 8",
+      "more than 8"
+    ]
+  ],
+  "marcas_disponibles": [
+    "Acura",
+    "BMW",
+    "Chevrolet",
+    "Dodge",
+    "Ferrari",
+    "Ford",
+    "Honda",
+    "Jaguar",
+    "Lexus",
+    "Mazda",
+    "Mercedes",
+    "Mercury",
+    "Nissan",
+    "Pontiac",
+    "Porsche",
+    "Saab",
+    "Saturn",
+    "Toyota",
+    "VW"
+  ],
+  "metricas_test_operativo": {
+    "roc_auc": 0.8265,
+    "pr_auc": 0.2315,
+    "recall": 0.8541,
+    "precision": 0.133,
+    "f1": 0.2302,
+    "pct_auditados": 38.52,
+    "lift_operativo": 2.22,
+    "lift_top10": 3.46
+  },
+  "bandas_riesgo_test": [
+    {
+      "banda": "Riesgo Bajo (< 26 %)",
+      "decision": "Flujo ordinario de liquidación",
+      "reclamos_test": 1896,
+      "pct_cartera": 61.48,
+      "fraudes_reales": 27,
+      "tasa_fraude_real_pct": 1.42,
+      "lift": 0.24
+    },
+    {
+      "banda": "Cobertura Estándar (26 % – 39 %)",
+      "decision": "Derivar a UIE — Cobertura estándar",
+      "reclamos_test": 566,
+      "pct_cartera": 18.35,
+      "fraudes_reales": 50,
+      "tasa_fraude_real_pct": 8.83,
+      "lift": 1.47
+    },
+    {
+      "banda": "Prioridad Alta (≥ 39 %)",
+      "decision": "Derivar a UIE — Prioridad alta",
+      "reclamos_test": 622,
+      "pct_cartera": 20.17,
+      "fraudes_reales": 108,
+      "tasa_fraude_real_pct": 17.36,
+      "lift": 2.89
+    }
+  ]
+}
